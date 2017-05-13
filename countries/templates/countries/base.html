@@ -1,0 +1,60 @@
+<!DOCTYPE html> {% load static %}
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        tr {
+            height: 5rem;
+        }
+    </style>
+    {{ form.media }}
+</head>
+
+<body>
+
+    <header class="base_header">
+        <nav>
+            <div class="nav-wrapper white darken-3">
+                <a style="padding-left: 50px" href="#!" class="black-text brand-logo">Countries</a>
+                 <ul class="right black-text" style="padding-right: 50px">
+                    <li>Logged in as {{ user.user.username }}</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main style="background-color: #342E37" class="base_main ">
+        {% block main_block %} {% endblock %}
+    </main>
+
+    <footer class="page-footer white darken-3 base_footer">
+        <div class="footer-copyright">
+            <div class="black-text container">
+                Designed and developed by <a class="black-text lighten-3" href="https://github.com/sahil-mohd" target="_blank">Sahil</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+
+
+    <!-- 
+     ______
+    < meow >
+     ------
+            \   ^__^
+             \  (oo)\_______
+                (__)\       )\/\
+                    ||----w |
+                    ||     ||
+     -->
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html> {% load static %}
+
+<html>
+
+<head>
+
+    <title>Country Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="black-text brand-logo">Country</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col m4 l8">
+            </div>
+            <div class="container col s12 m8 l4">
+                <form class="container" id="login_form" method="post" action="{% url 'countries:login_auth' %}">
+                    <h4>Login to View Countries</h4> {{ form.as_p }}
+                    <button class="btn waves-effect waves-light black white-text" type="submit" name="action" value="submit">Submit
+                        <i class="material-icons right">send</i>
+                        </button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+	<footer class="page-footer white darken-3 base_footer">
+        <div class="footer-copyright">
+            <div class="black-text container">
+                Designed and developed by <a class="black-text lighten-3" href="https://github.com/sahil-mohd" target="_blank">Sahil</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

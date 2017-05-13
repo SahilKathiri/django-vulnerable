@@ -1,0 +1,47 @@
+{% extends 'countries/base.html' %}
+{% load static %}
+
+{% block header_title %}
+    <title>{{ obj.user.first_name }}'s Dashboard</title>
+{% endblock %}
+
+{% block main_block %}
+    <div class="row container white">
+        <div class="col s12 m12 l12">
+            <div class="row">
+                <div class="container" style="padding-top: 3rem">
+                    <h3>{{ country.name }}</h3>
+                    <p>{{ country.about }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="container" style="padding-top: 3rem">
+                    <h5>Comments:</h5>
+                    <form id="login_form" method="post">
+                        {{ form.as_p }}
+                        <button class="btn waves-effect waves-light black white-text" type="submit" name="action" value="submit">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                    <table>
+                        <thead>
+                            <th>User</th>
+                            <th>Comment</th>
+                        </thead>
+                        <tbody>
+                            {% for comment in comments %}
+                                <tr>
+                                    <th>{{ comment.user.user.username }}</th>
+                                    <td>{{ comment.body|safe}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+{% endblock %}
