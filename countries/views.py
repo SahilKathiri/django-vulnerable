@@ -18,7 +18,7 @@ def index(request):
 				"LIKE '{}'".format(request.GET.get('query'))
 		country_list = Country.objects.raw(query)
 	else:
-		country_list = Country.objects.all().order_by('name')
+		country_list = []
 
 	# country_list = Country.objects.all().order_by('name')
 	context_dict['country_list'] = country_list
