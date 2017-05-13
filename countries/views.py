@@ -9,10 +9,18 @@ from .models import WebUser, Country, Comment
 @login_required()
 def index(request):
 	context_dict = {}
+	user = request.user
 	web_user = WebUser.objects.get(user=user)
 	context_dict['user'] = web_user
 
-	country_list = Country.objects.all().order_by('name')
+	if 'query' in request.GET:
+		query = "SELECT * from countries_country WHERE countries_country.name "\
+				"LIKE '{}'".format(request.GET.get('query'))
+		country_list = Country.objects.raw(query)
+	else:
+		country_list = Country.objects.all().order_by('name')
+
+	# country_list = Country.objects.all().order_by('name')
 	context_dict['country_list'] = country_list
 	return render(request, 'countries/index.html', context_dict)
 
